@@ -1,5 +1,5 @@
 name: prueba de expresiones
-run-name: !Prueba de expresiones¡
+run-name: ¡Prueba de expresiones!
 on:
     push:
         branches: 
