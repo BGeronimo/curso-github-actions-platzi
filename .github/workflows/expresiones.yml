@@ -1,0 +1,41 @@
+name: prueba de expresiones
+run-name: !Prueba de expresiones¡
+on:
+    push:
+        branches: 
+            - aprendiendo-github-actions
+            - main
+    pull_request: 
+        types: [assigned]
+    issue_comment: 
+        types: [created]
+
+jobs:
+
+    saludo-obligatorio:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Saludo obligatorio
+              run: echo "hola soy el saludo obligatorio"
+
+    execute-test-expresions:
+        runs-on: ubuntu-latest
+        
+        
+        steps:
+            - name: Hacer comentario de rama aprendiendo
+              if: github.ref == 'refs/heads/aprendiendo-github-actions'
+              run: echo "Se hizo una accion directo a la rama aprendiendo-github-actions"
+
+        
+            - name: Hacer comentario de rama aprendiendo
+              if: github.event.assignee.login == 'BGeronimo'
+              run: echo "Se asigno un pull request al usuario BGeronimo"
+
+            - name: Se hizo un comentario
+              if: github.event_name == 'issue_comment'
+              run: echo "Se creo un comentario"
+    
+
+    
+              
