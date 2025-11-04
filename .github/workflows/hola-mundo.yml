@@ -1,0 +1,12 @@
+name: Hola Mundo
+run-name: ¡Estoy aprendiendo GitHub Actions!
+on: [push]
+jobs:
+    execute-hola-mundo:
+        runs-on: ubuntu-latest
+        steps:
+            # Checkout the repository
+            - uses: actions/checkout@v3
+
+            - name: run script
+              run : node hola-mundo.js
